@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests --watchAll",
-    "test:staged": "jest --passWithNoTests",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "yarn test --watchAll -c jest-unit-config.js",
+    "test:integration": "yarn test --watchAll -c jest-integration-config.js",
+    "test:staged": "yarn test --findRelatedTests",
+    "test:ci": "yarn test --coverage",
     "prepare": "husky install"
   },
   "keywords": [],
