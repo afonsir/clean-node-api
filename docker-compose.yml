@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: clean-node-api-user
+      MONGO_INITDB_ROOT_PASSWORD: oK3xnAFQYo1WYKrO71y9IYeNtYTdQzWM
+
+volumes:
+  mongodb-data:
