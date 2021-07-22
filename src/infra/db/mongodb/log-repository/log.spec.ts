@@ -1,6 +1,11 @@
 import { Collection } from 'mongodb'
+import { LogErrorRepository } from '../../../../data/protocols/log-error-repository'
 import { MongoHelper } from '../helpers/mongo-helper'
 import { LogMongoRepository } from './log'
+
+const makeSut = (): LogErrorRepository => {
+  return new LogMongoRepository()
+}
 
 describe('Log Mongo Repository', () => {
   let errorCollection: Collection
@@ -19,7 +24,7 @@ describe('Log Mongo Repository', () => {
   })
 
   test('should create an error on success', async () => {
-    const sut = new LogMongoRepository()
+    const sut = makeSut()
 
     await sut.logError('any_stack')
 
