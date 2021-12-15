@@ -5,7 +5,7 @@ const makeSut = (): CompareFieldsValidation => {
   return new CompareFieldsValidation('field', 'fieldToCompare')
 }
 
-describe('CompareFieldsValidation', () => {
+describe('CompareFields Validation', () => {
   test('should return a InvalidParamError if validation fails', () => {
     const sut = makeSut()
     const error = sut.validate({
