@@ -2,12 +2,24 @@ version: '3.7'
 
 services:
   mongodb:
-    image: mongo
+    image: mongo:4
     container_name: mongodb
     ports:
       - 27017:27017
     volumes:
       - mongodb-data:/data/db
+  
+  api:
+    image: clean-node-api
+    build: .
+    container_name: api
+    ports:
+      - 5050:5050
+    links:
+      - mongodb
+    volumes:
+      - ./dist:/app/src/clean-node-api/dist
+    command: yarn start
 
 volumes:
   mongodb-data:
