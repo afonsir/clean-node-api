@@ -15,11 +15,13 @@ services:
     container_name: api
     ports:
       - 5050:5050
+      - 9222:9222
     links:
       - mongodb
     volumes:
       - ./dist:/app/src/clean-node-api/dist
-    command: yarn start
+      - ./package.json:/app/src/clean-node-api/package.json
+    command: yarn debug
 
 volumes:
   mongodb-data:
