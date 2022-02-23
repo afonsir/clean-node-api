@@ -19,7 +19,7 @@ services:
     links:
       - mongodb
     volumes:
-      - ./dist:/app/src/clean-node-api/dist
+      - ./dist/:/app/src/clean-node-api/dist/
       - ./package.json:/app/src/clean-node-api/package.json
     command: yarn debug
 
