@@ -37,7 +37,7 @@ describe('Account Mongo Repository', () => {
     expect(account.password).toBe('any_password')
   })
 
-  test('should return an account on loadByEmail sucess', async () => {
+  test('should return an account on loadByEmail success', async () => {
     const sut = makeSut()
 
     await accountCollection.insertOne({
